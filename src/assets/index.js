@@ -26,6 +26,14 @@ import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 
+// Company logos
+import spinbetLogo from "./spinbet-logo.jpeg";
+import netentLogo from "./netent-logo.png";
+import motorelementLogo from "./motorelement-logo.jpg";
+import kenmoredesignLogo from "./kenmoredesign-logo.png";
+import gigLogo from "./gig-logo.png";
+import arenacubeLogo from "./arenacube-logo.png";
+
 import rotta from "./rotta.png";
 import motorelement from "./motorelement.png";
 import pauseandplay from "./pauseandplay.png";
@@ -59,6 +67,12 @@ export {
   shopify,
   starbucks,
   tesla,
+  spinbetLogo,
+  netentLogo,
+  motorelementLogo,
+  kenmoredesignLogo,
+  gigLogo,
+  arenacubeLogo,
   rotta,
   motorelement,
   pauseandplay,
