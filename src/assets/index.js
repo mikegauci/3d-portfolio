@@ -26,9 +26,12 @@ import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import rotta from "./rotta.png";
+import motorelement from "./motorelement.png";
+import pauseandplay from "./pauseandplay.png";
+import casiomusic from "./casiomusic.png";
+import spinbet from "./spinbet.png";
+import maltaguns from "./maltaguns.png";
 
 export {
   logo,
@@ -56,7 +59,10 @@ export {
   shopify,
   starbucks,
   tesla,
-  carrent,
-  jobit,
-  tripguide,
+  rotta,
+  motorelement,
+  pauseandplay,
+  casiomusic,
+  spinbet,
+  maltaguns,
 };
