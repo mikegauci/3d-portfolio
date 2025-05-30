@@ -39,13 +39,17 @@ const About = () => {
 
       <motion.p 
         variants={fadeIn("", "", 0.1, 1)}
-        className={'mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'}
+        className={'mt-4 text-secondary text-[17px] max-w-full leading-[30px]'}
       >
-        Welcome to my portfolio website! I am an experienced front-end developer with extensive proficiency in WordPress, Shopify, React, and TypeScript. My wealth of experience in the industry has honed my skills in designing visually stunning, user-friendly, and responsive websites. My specialty lies in customizing WordPress and Shopify themes to fit the exact requirements of my clients.
+        I’m a versatile Senior Frontend Developer with over 10 years of experience, ready to bring your vision to life. I specialize in WordPress, React, Next.js, and Headless CMS solutions, delivering custom WordPress sites, theme and plugin development, and ACF integration for seamless content management and performance optimization.
         <br /><br />
-        My expertise in React empowers me to develop high-performing and dynamic user interfaces while my knowledge of TypeScript enables me to write scalable and maintainable code. Over the years, I have had the pleasure of working with diverse clients ranging from small businesses to large corporations, delivering top-tier web development solutions.
+        My extensive work with React and Next.js has equipped me to build modern, scalable web applications that provide exceptional user experiences. With a strong background in SEO strategies, I help boost search rankings and site speed to drive your business growth.
         <br /><br />
-        Whether you require a brand-new website, a revamp of an existing one, or a custom web application, I have the necessary skills to bring your vision to life. Please peruse my portfolio and don't hesitate to contact me should you have any queries.
+        As a Project Manager, I’ve led development teams, managed roadmaps, and aligned technical execution with business goals. I’m skilled in React, TypeScript, and modern frontend frameworks, and I’ve successfully migrated and optimized websites for Headless CMS setups.
+        <br /><br />
+        I also have hands-on experience as a Shopify business owner, building and scaling an e-commerce store from dropshipping to Print-on-Demand apparel, managing operations, customer relations, and logistics to drive sales.
+        <br /><br />
+        I bring a proactive, strategic mindset and a commitment to crafting high-quality digital solutions that maximize engagement and revenue. I’m available as a dedicated contractor or developer to elevate your next project or ongoing work as a contractor.
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>
