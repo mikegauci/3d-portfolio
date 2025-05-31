@@ -2,13 +2,15 @@ import React from 'react'
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { styles } from '../styles/';
 import { EarthCanvas } from './canvas';
 import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
 
-const Contact = () => {
+const ContactForm = () => {
   const formRef = useRef();
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [form, setForm] = useState({
     name: '',
@@ -24,37 +26,55 @@ const Contact = () => {
   }
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!executeRecaptcha) {
+      alert('reCAPTCHA not yet available');
+      return;
+    }
+    
     setLoading(true);
 
-    emailjs.send(
-      'service_l6xx2x3',
-      'template_2p5r8o7',
-      {
-        from_name: form.name,
-        to_name: 'Michael',
-        from_email: form.email,
-        to_email: 'mikegauci@gmail.com',
-        message: form.message,
-      },
-      '5c_MeTTACsPf5dLP5'
-    )
-    .then(() => {
-      setLoading(false);
-      alert('Thank you for submitting the form, I will get back to you as soon as I can!');
+    try {
+      // Execute reCAPTCHA
+      const token = await executeRecaptcha('submit_contact_form');
+      
+      // For now, we'll send the form with emailjs
+      // In production, you should verify the token on your backend
+      emailjs.send(
+        'service_l6xx2x3',
+        'template_2p5r8o7',
+        {
+          from_name: form.name,
+          to_name: 'Michael',
+          from_email: form.email,
+          to_email: 'mikegauci@gmail.com',
+          message: form.message,
+          recaptcha_token: token, // Include token for backend verification if needed
+        },
+        '5c_MeTTACsPf5dLP5'
+      )
+      .then(() => {
+        setLoading(false);
+        alert('Thank you for submitting the form, I will get back to you as soon as I can!');
 
-      setForm({
-        name: '',
-        email: '',
-        message: '',
-      });
-    },
-    (error) => {
+        setForm({
+          name: '',
+          email: '',
+          message: '',
+        });
+      },
+      (error) => {
+        setLoading(false);
+        console.log(error);
+        alert('There was an error sending your message, please try again later.');
+      })
+    } catch (error) {
       setLoading(false);
-      console.log(error);
-      alert('There was an error sending your message, please try again later.');
-    })
+      console.error('reCAPTCHA error:', error);
+      alert('reCAPTCHA verification failed. Please try again.');
+    }
   }
 
   return (
@@ -123,5 +143,22 @@ const Contact = () => {
     </div>
   )
 }
+
+const Contact = () => {
+  return (
+    <GoogleReCaptchaProvider
+      reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+      language="en"
+      scriptProps={{
+        async: false,
+        defer: false,
+        appendTo: 'head',
+        nonce: undefined,
+      }}
+    >
+      <ContactForm />
+    </GoogleReCaptchaProvider>
+  );
+};
 
 export default SectionWrapper(Contact, "contact")
