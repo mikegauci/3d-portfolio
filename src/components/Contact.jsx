@@ -19,10 +19,14 @@ const ContactForm = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value })
+    // Clear error when user starts typing
+    if (error) setError('');
   }
 
 
@@ -30,11 +34,12 @@ const ContactForm = () => {
     e.preventDefault();
     
     if (!executeRecaptcha) {
-      alert('reCAPTCHA not yet available');
+      setError('reCAPTCHA not yet available. Please try again.');
       return;
     }
     
     setLoading(true);
+    setError('');
 
     try {
       // Execute reCAPTCHA
@@ -57,23 +62,23 @@ const ContactForm = () => {
       )
       .then(() => {
         setLoading(false);
-        alert('Thank you for submitting the form, I will get back to you as soon as I can!');
-
+        setSubmitted(true);
+        
         setForm({
           name: '',
           email: '',
           message: '',
         });
       },
-      (error) => {
+      (emailError) => {
         setLoading(false);
-        console.log(error);
-        alert('There was an error sending your message, please try again later.');
+        console.log(emailError);
+        setError('There was an error sending your message, please try again later.');
       })
     } catch (error) {
       setLoading(false);
       console.error('reCAPTCHA error:', error);
-      alert('reCAPTCHA verification failed. Please try again.');
+      setError('reCAPTCHA verification failed. Please try again.');
     }
   }
 
@@ -87,51 +92,66 @@ const ContactForm = () => {
           Get in touch
         </p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className='mt-12 flex flex-col gap-8'
-        >
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Name</span>
-            <input
-              type='text'
-              name='name'
-              value={form.name}
-              onChange={handleChange}
-              placeholder='Enter your name'
-              className='bg-tertiary py-4 px-6 placeholder-secondary text-white rounded-lg outline-none border-none font-medium'
-            />
-          </label>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Email</span>
-            <input
-              type='type'
-              name='email'
-              value={form.email}
-              onChange={handleChange}
-              placeholder='Enter your email address'
-              className='bg-tertiary py-4 px-6 placeholder-secondary text-white rounded-lg outline-none border-none font-medium'
-            />
-          </label>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Message</span>
-            <textarea
-              rows="7"
-              name='message'
-              value={form.message}
-              onChange={handleChange}
-              placeholder='Enter your message...'
-              className='bg-tertiary py-4 px-6 placeholder-secondary text-white rounded-lg outlined-none border-none font-medium'
-            />
-          </label>
-          <button
-            type='submit'
-            className='bg-tertiary py-3 px-8 outline-none w-fit font-bold shadow-md shadow-primary rounded-xl'
+        
+        {submitted ? (
+          <div className='mt-12 bg-green-900/20 border border-green-500/30 rounded-2xl p-8'>
+            <h4 className='text-green-400 text-2xl font-bold mb-4'>Thank you for your message!</h4>
+            <p className='text-white text-lg'>
+              I will get back to you as soon as I can.
+            </p>
+          </div>
+        ) : (
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className='mt-12 flex flex-col gap-8'
           >
-            {loading ? 'Sending...' : 'Send'}
-          </button>
-        </form>
+            {error && (
+              <div className='bg-red-900/20 border border-red-500/30 rounded-lg p-4'>
+                <p className='text-red-400'>{error}</p>
+              </div>
+            )}
+            <label className='flex flex-col'>
+              <span className='text-white font-medium mb-4'>Your Name</span>
+              <input
+                type='text'
+                name='name'
+                value={form.name}
+                onChange={handleChange}
+                placeholder='Enter your name'
+                className='bg-tertiary py-4 px-6 placeholder-secondary text-white rounded-lg outline-none border-none font-medium'
+              />
+            </label>
+            <label className='flex flex-col'>
+              <span className='text-white font-medium mb-4'>Your Email</span>
+              <input
+                type='type'
+                name='email'
+                value={form.email}
+                onChange={handleChange}
+                placeholder='Enter your email address'
+                className='bg-tertiary py-4 px-6 placeholder-secondary text-white rounded-lg outline-none border-none font-medium'
+              />
+            </label>
+            <label className='flex flex-col'>
+              <span className='text-white font-medium mb-4'>Your Message</span>
+              <textarea
+                rows="7"
+                name='message'
+                value={form.message}
+                onChange={handleChange}
+                placeholder='Enter your message...'
+                className='bg-tertiary py-4 px-6 placeholder-secondary text-white rounded-lg outlined-none border-none font-medium'
+              />
+            </label>
+            <button
+              type='submit'
+              className='bg-tertiary py-3 px-8 outline-none w-fit font-bold shadow-md shadow-primary rounded-xl'
+            >
+              {loading ? 'Sending...' : 'Send'}
+            </button>
+          </form>
+        )}
       </motion.div>
 
       <motion.div
