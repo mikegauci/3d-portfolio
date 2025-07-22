@@ -51,6 +51,10 @@ export const navLinks = [
 
 const services = [
   {
+    title: "Frontend Developer",
+    icon: creator,
+  },
+  {
     title: "WordPress Developer",
     icon: web,
   },
@@ -61,10 +65,6 @@ const services = [
   {
     title: "Project Manager",
     icon: backend,
-  },
-  {
-    title: "React Developer",
-    icon: creator,
   },
 ];
 
@@ -126,18 +126,20 @@ const technologies = [
 const experiences = [
   {
     title: "Senior Frontend Engineer (Contractor)",
-    company_name: "Spinbet",
+    company_name: "Momentum Group",
     icon: spinbetLogo,
     iconBg: "#170d25",
     date: "September 2022 - May 2025",
     points: [
       "Worked on improving existing and building new features for spinbet.com, an online casino and sports betting platform for the New Zealand and Canadian markets.",
+      "Built features across the casino and sportsbook pages, user dashboard settings, and promotions.",
+      "Fixed various UI and logic bugs across the platform, improving stability and user experience..",
+      "Created high-converting landing pages with dynamic content and translation keys populated from a headless CMS.",
       "Researched and implemented new approaches to enhance product performance, user experience, and codebase scalability.",
       "Provided technical feasibility assessments and accurate time estimations for tasks and projects.",
       "Ensured that all code met high standards of quality, stability, and readability.",
       "Conducted pull request reviews, offering constructive feedback and suggesting improvements.",
       "Actively shared knowledge and dedicated time to mentoring colleagues to elevate the team's technical capabilities.",
-      "Served as a leading role model and coach, fostering a culture of collaboration and technical excellence.",
     ],
   },
   {
