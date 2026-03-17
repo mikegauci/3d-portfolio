@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { styles } from '../styles';
 import { navLinks } from '../constants';
 import { logo, menu, close } from '../assets';
+import cvFile from '../assets/Michael-Gauci-senior-frontend-developer.pdf';
 
 const Navbar = () => {
   const [active, setActive] = useState(' ');
@@ -23,7 +24,7 @@ const Navbar = () => {
       >
         <img src={logo} alt="logo" className='w-9 h-9 object-contain' />
         <p className='text-white text-[18px] font-bold cursor-pointer'>Mike
-        <span className='sm:block:hidden'> | Frontend Developer</span></p>
+        <span className='sm:block:hidden'> | Senior Frontend Developer</span></p>
       </Link>
       <ul className='list-none hidden sm:flex flex-row gap-10'>
         {navLinks.map((link) =>
@@ -37,6 +38,11 @@ const Navbar = () => {
             <a href={`#${link.id}`}>{link.title}</a>
           </li>
         )}
+        <li className='text-secondary hover:text-white text-[18px] font-medium cursor-pointer'>
+          <a href={cvFile} target='_blank' rel='noopener noreferrer' download>
+            Download CV
+          </a>
+        </li>
       </ul>
       <div className='sm:hidden flex flex-1 justify-end items-center'>
         <img 
@@ -61,6 +67,14 @@ const Navbar = () => {
                 <a href={`#${link.id}`}>{link.title}</a>
               </li>
             )}
+            <li
+              className='text-secondary hover:text-white font-poppins font-medium cursor-pointer text-[16px]'
+              onClick={() => setToggle(!toggle)}
+            >
+              <a href={cvFile} target='_blank' rel='noopener noreferrer' download>
+                Download CV
+              </a>
+            </li>
           </ul>
         </div>
       </div>

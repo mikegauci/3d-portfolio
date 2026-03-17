@@ -11,25 +11,24 @@ import {
   redux,
   tailwind,
   nodejs,
-  mongodb,
+  nextjs,
+  supabase,
+  wordpress,
   git,
   figma,
   docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
   rotta,
   motorelement,
   pauseandplay,
   casiomusic,
   spinbet,
   maltaguns,
-  threejs,
-  spinbetLogo,
+  winnables,
+  momentumGroupLogo,
   netentLogo,
   motorelementLogo,
   kenmoredesignLogo,
+  winnablesLogo,
   gigLogo,
   arenacubeLogo,
 } from "../assets";
@@ -55,16 +54,16 @@ const services = [
     icon: creator,
   },
   {
+    title: "Full-Stack Developer",
+    icon: backend,
+  },
+  {
     title: "WordPress Developer",
     icon: web,
   },
   {
-    title: "Shopify Developer",
-    icon: mobile,
-  },
-  {
     title: "Project Manager",
-    icon: backend,
+    icon: mobile,
   },
 ];
 
@@ -102,12 +101,12 @@ const technologies = [
     icon: nodejs,
   },
   {
-    name: "MongoDB",
-    icon: mongodb,
+    name: "Next.js",
+    icon: nextjs,
   },
   {
-    name: "Three JS",
-    icon: threejs,
+    name: "WordPress",
+    icon: wordpress,
   },
   {
     name: "git",
@@ -125,10 +124,24 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Senior Frontend Engineer (Contractor)",
+    title: "Full Stack Developer (Front-end Leaning)",
+    company_name: "Winnables",
+    icon: winnablesLogo,
+    iconBg: "#184bff",
+    date: "August 2025 - March 2026",
+    points: [
+      "Built and improved core parts of a Web3 crypto gaming platform across the frontend and admin tools.",
+      "Delivered user-facing features such as battles, pack opening, rewards, wallet flows, and mobile responsiveness to make the product smoother and easier to use.",
+      "Fixed day-to-day bugs, improved page behavior, and helped keep the platform stable during active feature development.",
+      "Built and updated admin features for internal teams, including withdrawals, KYC checks, account views, and IP blacklist controls.",
+      "Improved pack and raffle management workflows, supported early shipping-related functionality, and delivered practical tools that helped operations teams handle user cases faster with better visibility.",
+    ],
+  },
+  {
+    title: "Senior Frontend Engineer",
     company_name: "Momentum Group",
-    icon: spinbetLogo,
-    iconBg: "#170d25",
+    icon: momentumGroupLogo,
+    iconBg: "#272727",
     date: "September 2022 - May 2025",
     points: [
       "Worked on improving existing and building new features for spinbet.com, an online casino and sports betting platform for the New Zealand and Canadian markets.",
@@ -139,7 +152,6 @@ const experiences = [
       "Provided technical feasibility assessments and accurate time estimations for tasks and projects.",
       "Ensured that all code met high standards of quality, stability, and readability.",
       "Conducted pull request reviews, offering constructive feedback and suggesting improvements.",
-      "Actively shared knowledge and dedicated time to mentoring colleagues to elevate the team's technical capabilities.",
     ],
   },
   {
@@ -245,6 +257,98 @@ const testimonials = [
 
 const projects = [
   {
+    name: "Winnables",
+    description:
+      "I worked as a Senior Full-Stack Developer at Winnables, a Web3 real-time gaming platform, building and improving the UI, API, and admin interface. I shipped core features across a stack including Next.js, TypeScript, Tailwind CSS, React Query, Wagmi/ViEM, Express, PostgreSQL, Redis, Socket.IO, and blockchain/payment integrations, with a strong focus on product development, reliability, and performance.",
+    tags: [
+      {
+        name: "nextjs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "node.js",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "express",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "postgresql",
+        color: "green-text-gradient",
+      },
+    ],
+    image: winnables,
+    website_link: "https://www.winnables.com/",
+  },
+  {
+    name: "Spinbet",
+    description:
+      "I was contracted for three years as a Senior Frontend Developer for Momentum Group working on Spinbet, an online casino and sports betting platform for the New Zealand and Canadian markets. SpinBet was built with Next.js 14, TypeScript, React 18, Chakra UI/Material-UI, Recoil, i18next, and PWA features. It uses Sentry for monitoring, Pusher for real-time updates, and Jest for testing. My work focused on improving features, ensuring performance and scalability, mentoring colleagues, conducting code reviews, and fostering a collaborative, technically excellent environment.",
+    tags: [
+      {
+        name: "nextjs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "chakra-ui",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "recoil",
+        color: "orange-text-gradient",
+      },
+    ],
+    image: spinbet,
+    website_link: "https://www.spinbet.com/",
+  },
+  {
+    name: "Malta Guns",
+    description:
+      "A personal project I'm continuously working on with a friend in our spare time, MaltaGuns is built with Next.js 13 and TypeScript. It uses Supabase for database and authentication, Tailwind CSS + shadcn/ui for styling, and Stripe for payments. Features include user authentication, an admin panel, a blog system, events management, a marketplace, an establishments directory, and rich text editing with TipTap. It leverages modern React architecture and robust form validation.",
+    tags: [
+      {
+        name: "nextjs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "supabase",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "stripe",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "shadcn",
+        color: "green-text-gradient",
+      },
+    ],
+    image: maltaguns,
+    website_link: "https://maltaguns-app.vercel.app/",
+    github_link: "https://github.com/mikegauci/maltaguns-app",
+  },
+  {
     name: "Rotta",
     description:
       "Powered by WordPress and Gutenberg, the platform features various functionalities: WooCommerce for e-commerce, a bustling marketplace, a comprehensive directory using the Formidable Views plugin, and dynamic blog and events pages. Their mission extends beyond mere preservation, seeking to ignite passion for automotive culture among a broader audience.",
@@ -344,65 +448,6 @@ const projects = [
     ],
     image: casiomusic,
     website_link: "https://casiomusic-mea.com/",
-  },
-  {
-    name: "Spinbet",
-    description:
-      "I was contracted for three years as a Senior Frontend Developer for SpinBet, an online casino and sports betting platform for the New Zealand and Canadian markets. SpinBet was built with Next.js 14, TypeScript, React 18, Chakra UI/Material-UI, Recoil, i18next, and PWA features. It uses Sentry for monitoring, Pusher for real-time updates, and Jest for testing. My work focused on improving features, ensuring performance and scalability, mentoring colleagues, conducting code reviews, and fostering a collaborative, technically excellent environment.",
-    tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "typescript",
-        color: "green-text-gradient",
-      },
-      {
-        name: "chakra-ui",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "recoil",
-        color: "orange-text-gradient",
-      },
-    ],
-    image: spinbet,
-    website_link: "https://www.spinbet.com/",
-  },
-  {
-    name: "Malta Guns",
-    description:
-      "A personal project I'm continuously working on with a friend in our spare time, MaltaGuns is built with Next.js 13 and TypeScript. It uses Supabase for database and authentication, Tailwind CSS + shadcn/ui for styling, and Stripe for payments. Features include user authentication, an admin panel, a blog system, events management, a marketplace, an establishments directory, and rich text editing with TipTap. It leverages modern React architecture and robust form validation.",
-    tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "typescript",
-        color: "green-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "stripe",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "shadcn",
-        color: "green-text-gradient",
-      },
-    ],
-    image: maltaguns,
-    website_link: "https://maltaguns-app.vercel.app/",
-    github_link: "https://github.com/mikegauci/maltaguns-app",
   },
 ];
 

@@ -20,6 +20,9 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import nextjs from "./tech/nextjs.png";
+import supabase from "./tech/supabase.png";
+import wordpress from "./tech/wordpress.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -28,6 +31,8 @@ import tesla from "./company/tesla.png";
 
 // Company logos
 import spinbetLogo from "./spinbet-logo.jpeg";
+import winnablesLogo from "./winnables-logo.jpeg";
+import momentumGroupLogo from "./momentum-group-logo.jpeg";
 import netentLogo from "./netent-logo.png";
 import motorelementLogo from "./motorelement-logo.jpg";
 import kenmoredesignLogo from "./kenmoredesign-logo.png";
@@ -39,7 +44,8 @@ import motorelement from "./motorelement.png";
 import pauseandplay from "./pauseandplay.png";
 import casiomusic from "./casiomusic.png";
 import spinbet from "./spinbet.png";
-import maltaguns from "./maltaguns.png";
+import maltaguns from "./maltaguns-1.png";
+import winnables from "./winnables.png";
 
 export {
   logo,
@@ -63,11 +69,16 @@ export {
   tailwind,
   typescript,
   threejs,
+  nextjs,
+  supabase,
+  wordpress,
   meta,
   shopify,
   starbucks,
   tesla,
   spinbetLogo,
+  winnablesLogo,
+  momentumGroupLogo,
   netentLogo,
   motorelementLogo,
   kenmoredesignLogo,
@@ -79,4 +90,5 @@ export {
   casiomusic,
   spinbet,
   maltaguns,
+  winnables,
 };
